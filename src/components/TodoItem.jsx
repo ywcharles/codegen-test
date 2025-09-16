@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './TodoItem.css'
 
 function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   const [isEditing, setIsEditing] = useState(false)
@@ -43,9 +42,9 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   }
 
   return (
-    <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+    <div className={`flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg transition-all duration-200 min-h-[60px] hover:border-primary hover:shadow-md hover:shadow-black/10 dark:hover:shadow-white/10 ${todo.completed ? 'opacity-70 bg-gray-50 dark:bg-gray-900' : ''} sm:p-3 sm:gap-2`}>
       <button
-        className="toggle-button"
+        className="bg-none border-none text-xl cursor-pointer p-1 rounded flex-shrink-0 transition-transform duration-200 hover:scale-110"
         onClick={onToggle}
         aria-label={todo.completed ? 'Mark as incomplete' : 'Mark as complete'}
       >
@@ -53,11 +52,11 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
       </button>
 
       {isEditing ? (
-        <div className="edit-container">
+        <div className="flex-1">
           <input
             ref={editInputRef}
             type="text"
-            className="edit-input"
+            className="w-full px-2 py-2 border-2 border-primary rounded text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white outline-none"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -66,26 +65,28 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
         </div>
       ) : (
         <div 
-          className="todo-content"
+          className="flex-1 text-left cursor-pointer py-1 px-0 rounded transition-colors duration-200 hover:bg-primary/5"
           onDoubleClick={handleDoubleClick}
           title="Double-click to edit"
         >
-          <span className="todo-text">{todo.text}</span>
+          <span className={`text-base leading-relaxed break-words ${todo.completed ? 'line-through text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+            {todo.text}
+          </span>
         </div>
       )}
 
-      <div className="todo-actions">
+      <div className="flex gap-2 flex-shrink-0 sm:gap-1">
         {!isEditing && (
           <>
             <button
-              className="edit-button"
+              className="bg-none border-none text-base cursor-pointer p-2 rounded transition-all duration-200 opacity-60 hover:opacity-100 hover:bg-primary/10 hover:scale-110 sm:p-1.5 sm:text-sm"
               onClick={handleEdit}
               aria-label="Edit todo"
             >
               ✏️
             </button>
             <button
-              className="delete-button"
+              className="bg-none border-none text-base cursor-pointer p-2 rounded transition-all duration-200 opacity-60 hover:opacity-100 hover:bg-red-100 dark:hover:bg-red-900/20 hover:scale-110 sm:p-1.5 sm:text-sm"
               onClick={onDelete}
               aria-label="Delete todo"
             >
@@ -99,4 +100,3 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
 }
 
 export default TodoItem
-

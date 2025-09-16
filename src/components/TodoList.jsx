@@ -1,18 +1,17 @@
 import React from 'react'
 import TodoItem from './TodoItem'
-import './TodoList.css'
 
 function TodoList({ todos, onToggleTodo, onDeleteTodo, onEditTodo }) {
   if (todos.length === 0) {
     return (
-      <div className="todo-list-empty">
+      <div className="text-center py-8 text-gray-600 dark:text-gray-400 italic">
         <p>No todos match your current filter.</p>
       </div>
     )
   }
 
   return (
-    <div className="todo-list">
+    <div className="flex flex-col gap-2">
       {todos.map(todo => (
         <TodoItem
           key={todo.id}
@@ -27,4 +26,3 @@ function TodoList({ todos, onToggleTodo, onDeleteTodo, onEditTodo }) {
 }
 
 export default TodoList
-
