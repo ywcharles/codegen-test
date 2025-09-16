@@ -3,7 +3,6 @@ import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 import TodoFilter from './components/TodoFilter'
 import { useTodos } from './hooks/useTodos'
-import './App.css'
 
 function App() {
   const {
@@ -19,13 +18,17 @@ function App() {
   } = useTodos()
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>📝 Todo App</h1>
-        <p className="app-subtitle">Stay organized and get things done!</p>
+    <div className="max-w-2xl mx-auto px-4 py-8 min-h-screen flex flex-col sm:px-6">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-2 drop-shadow-sm sm:text-3xl">
+          📝 Todo App
+        </h1>
+        <p className="text-text-secondary dark:text-dark-text-secondary text-lg">
+          Stay organized and get things done!
+        </p>
       </header>
 
-      <main className="app-main">
+      <main className="flex-1 flex flex-col gap-6">
         <TodoForm onAddTodo={addTodo} />
         
         {todos.length > 0 && (
@@ -46,13 +49,13 @@ function App() {
         )}
 
         {todos.length === 0 && (
-          <div className="empty-state">
+          <div className="text-center py-12 px-4 text-text-secondary dark:text-dark-text-secondary text-lg">
             <p>🎉 No todos yet! Add one above to get started.</p>
           </div>
         )}
       </main>
 
-      <footer className="app-footer">
+      <footer className="text-center mt-8 pt-4 border-t border-border-subtle dark:border-dark-border-subtle text-text-muted dark:text-dark-text-muted text-sm">
         <p>Built with React & ❤️</p>
       </footer>
     </div>
@@ -60,4 +63,3 @@ function App() {
 }
 
 export default App
-
