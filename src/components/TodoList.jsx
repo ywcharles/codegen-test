@@ -4,7 +4,7 @@ import TodoItem from './TodoItem'
 function TodoList({ todos, onToggleTodo, onDeleteTodo, onEditTodo }) {
   if (todos.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-600 dark:text-gray-400 italic">
+      <div className="text-center py-8 text-text-secondary dark:text-dark-text-muted italic">
         <p>No todos match your current filter.</p>
       </div>
     )

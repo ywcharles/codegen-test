@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 min-h-screen flex flex-col sm:px-6">
       <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-2 drop-shadow-sm sm:text-3xl">
+        <h1 className="text-4xl font-bold text-text-primary dark:text-dark-text-primary mb-2 drop-shadow-sm sm:text-3xl">
           📝 Todo App
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 text-lg">
+        <p className="text-text-secondary dark:text-dark-text-secondary text-lg">
           Stay organized and get things done!
         </p>
       </header>
@@ -49,13 +49,13 @@ function App() {
         )}
 
         {todos.length === 0 && (
-          <div className="text-center py-12 px-4 text-gray-600 dark:text-gray-300 text-lg">
+          <div className="text-center py-12 px-4 text-text-secondary dark:text-dark-text-secondary text-lg">
             <p>🎉 No todos yet! Add one above to get started.</p>
           </div>
         )}
       </main>
 
-      <footer className="text-center mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-sm">
+      <footer className="text-center mt-8 pt-4 border-t border-border-subtle dark:border-dark-border-subtle text-text-muted dark:text-dark-text-muted text-sm">
         <p>Built with React & ❤️</p>
       </footer>
     </div>

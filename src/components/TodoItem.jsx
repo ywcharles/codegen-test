@@ -42,7 +42,7 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
   }
 
   return (
-    <div className={`flex items-center gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg transition-all duration-200 min-h-[60px] hover:border-primary hover:shadow-md hover:shadow-black/10 dark:hover:shadow-white/10 ${todo.completed ? 'opacity-70 bg-gray-50 dark:bg-gray-900' : ''} sm:p-3 sm:gap-2`}>
+    <div className={`flex items-center gap-3 p-4 bg-background-primary dark:bg-dark-background-primary border border-border-default dark:border-dark-border-default rounded-lg transition-all duration-200 min-h-[60px] hover:border-primary hover:shadow-md hover:shadow-black/10 dark:hover:shadow-white/10 ${todo.completed ? 'opacity-70 bg-background-secondary dark:bg-dark-background-elevated' : ''} sm:p-3 sm:gap-2`}>
       <button
         className="bg-none border-none text-xl cursor-pointer p-1 rounded flex-shrink-0 transition-transform duration-200 hover:scale-110"
         onClick={onToggle}
@@ -56,7 +56,7 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
           <input
             ref={editInputRef}
             type="text"
-            className="w-full px-2 py-2 border-2 border-primary rounded text-base bg-white dark:bg-gray-700 text-gray-900 dark:text-white outline-none"
+            className="w-full px-2 py-2 border-2 border-primary rounded text-base bg-background-primary dark:bg-dark-background-secondary text-text-primary dark:text-dark-text-primary outline-none"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -69,7 +69,7 @@ function TodoItem({ todo, onToggle, onDelete, onEdit }) {
           onDoubleClick={handleDoubleClick}
           title="Double-click to edit"
         >
-          <span className={`text-base leading-relaxed break-words ${todo.completed ? 'line-through text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+          <span className={`text-base leading-relaxed break-words ${todo.completed ? 'line-through text-text-muted dark:text-dark-text-muted' : 'text-text-primary dark:text-dark-text-primary'}`}>
             {todo.text}
           </span>
         </div>

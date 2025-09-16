@@ -22,7 +22,7 @@ function TodoForm({ onAddTodo }) {
       <div className="flex gap-2 items-center sm:flex-col sm:gap-3">
         <input
           type="text"
-          className="flex-1 px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 sm:w-full"
+          className="flex-1 px-4 py-3 border-2 border-border-default dark:border-dark-border-default rounded-lg text-base bg-background-primary dark:bg-dark-background-primary text-text-primary dark:text-dark-text-primary placeholder-text-muted dark:placeholder-dark-text-muted transition-colors duration-200 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 sm:w-full"
           placeholder="What needs to be done?"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -31,7 +31,7 @@ function TodoForm({ onAddTodo }) {
         />
         <button 
           type="submit" 
-          className="px-6 py-3 bg-primary text-white border-none rounded-lg text-base font-medium cursor-pointer transition-all duration-200 whitespace-nowrap hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none sm:w-full"
+          className="px-6 py-3 bg-primary text-white border-none rounded-lg text-base font-medium cursor-pointer transition-all duration-200 whitespace-nowrap hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 disabled:bg-text-subtle disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none sm:w-full"
           disabled={!inputValue.trim()}
         >
           ➕ Add
